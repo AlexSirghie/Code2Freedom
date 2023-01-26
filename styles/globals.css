@@ -1,13 +1,17 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace, "monserrat";
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --primary:var(#202020);
+  --secondary-green:#27AE60;
+  --secondary-yellow:#FFCC01;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -46,7 +50,7 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
+    --primary-glow: linear-gradient(rgb(245, 246, 213),rgb(251, 255, 1),rgb(155, 147, 1), rgb(79, 75, 0));
     --secondary-glow: linear-gradient(
       to bottom right,
       rgba(1, 65, 255, 0),
@@ -54,7 +58,7 @@
       rgba(1, 65, 255, 0.3)
     );
 
-    --tile-start-rgb: 2, 13, 46;
+    /* --tile-start-rgb: 2, 13, 46;
     --tile-end-rgb: 2, 5, 19;
     --tile-border: conic-gradient(
       #ffffff80,
@@ -64,7 +68,7 @@
       #ffffff10,
       #ffffff10,
       #ffffff80
-    );
+    ); */
 
     --callout-rgb: 20, 20, 20;
     --callout-border-rgb: 108, 108, 108;
@@ -83,25 +87,244 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  /* font: montserrat; */
 }
-
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #202020;
 }
-
 a {
   color: inherit;
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+
+
+/* COLORS */
+.secondary-yellow{
+  color:var(--secondary-yellow)
 }
+
+/* CALL-TO-ACTION-BTN */
+.call-to-action-btn :hover{
+  cursor: pointer;
+  box-shadow: 0em 0em 0.3em 0.3em  white ;
+}
+
+/* CARDS */
+.title-card{
+  /* border: solid; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0em 0em 0.5em 0.5em  #27AE60 ;
+  margin:3rem;
+  padding: 1rem;
+}
+.text-card{
+  box-shadow: 0em 0em 0.2em 0.2em  #27AE60 ;
+  margin:3rem;
+  padding: 3rem;
+  text-align: center;
+ } 
+.tech-stack{
+  margin:3rem;
+  padding: 3rem;
+  text-align: center;
+ } 
+
+/* SECTIONS */
+.section-container {
+  margin-top: 2rem 0 ;
+  padding:  2rem 0;
+}
+
+/* NAV-SECTION */
+.c2f-nav-logo{
+  width:150px;
+}
+/* NAV-SECTION */
+.nav-bar{
+  display: flex;
+  /* flex-direction: row-reverse; */
+  /* justify-content: space-between; */
+  background-color: #202020;
+}
+
+.nav-btn{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  text-decoration: none;
+  list-style: none;
+  padding:0.5rem;
+  margin:0.5rem;
+  cursor: pointer;
+  
+}
+.nav-btn:hover{
+  background-color: #ffd700;
+  /* box-shadow: 0 0 0.3rem 0.3rem ; */
+}
+
+
+/* HERO-SECTION */
+
+.heroContainer {
+  /* display: flex;
+  flex-direction: row; */
+  /* border: solid white 3px; */
+  /* color: white; */
+  /* padding: 5rem; */
+  color: rgb(var(--foreground-rgb));
+  position: relative;
+  top: 7rem;
+  background: transparent;
+}
+.heroSection {
+  width: auto;
+  margin: 5px;
+  padding: 2rem;
+  
+}
+.hero-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.star-rocket{
+  width:65%;
+  margin: 2rem 0;
+  background-image:url('../public/coin-animation.gif'); 
+  background-repeat:no-repeat; 
+  border: solid #202020 ;
+  border-radius: 50%;
+  box-shadow: 0em 0em 0.5em 0.5em  #27AE60 ;
+}
+.hero-right-container{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: solid gold;
+  align-items: center;
+  /* box-shadow: 0em 0em 0.2em 0.2em  #FFCC01 ; */
+}
+/* WHAT WE DO */
+.what-we-do-content{
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+.what-we-do-text-chunck{
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+/*TESTIMONIALS*/
+.testimonial-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+.testimonial-card-container{
+  display: flex;
+  flex-direction: row;
+}
+.testimonial-text-card{
+  margin-bottom: 2rem;
+}
+
+.testimonial-title-card{
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+/* OUR TEAM */
+.trainer-card{
+  display: flex;
+  flex-direction: row;
+}
+.trainer-box{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* FOOTER-SECTION */
+/* .footer-background{ */
+  /* background-color: black; */
+/* } */
+
+
+/* ---------------- Navbar and burger menu ------------------ */
+
+.burger-menu {
+  /* display: none; */
+  height: 100%;
+  width: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.display-burger{
+  display: none;
+}
+@media (min-width: 600px) {
+  .display-burger {display: block; /* Show on Mobile */}
+}
+
+.burger-bar {
+  width: 4em;
+  height: 0.5em;
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.4em;
+  margin: 0.37em;
+}
+
+.menu {
+  width: 50%;
+  height: 100vh;
+  background-color: rgb(154, 181,240);
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+/* ------------- sliding menu ------------------ */
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: inherit;
+}
+
+/* ----- animations--------- */
+/* clicked */
+.burger-bar.clicked:nth-child(1){
+  transform: rotate(45deg) translate(0.75em, 1.25em);
+  transition: ease-out 0.5s;
+}
+
+.burger-bar.clicked:nth-child(2){
+  transform: scale(0.1);
+  transition: ease-out 0.5s;
+}
+
+.burger-bar.clicked:nth-child(3){
+  transform: rotate(135deg) translate(-0.5em, 1em);
+  transition: ease-out 0.5s;
+}
+
+/* unclicked */
+.burger-bar.unclicked {
+  transform: rotate(0) translate(0);
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.5s;
+}
+
+
+
