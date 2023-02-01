@@ -1,27 +1,14 @@
 import "../styles/globals.css";
-import ResponsiveAppBar from "./components/nav";
 import Hero from "./components/hero";
 import Testimonials from "./components/testimonials";
 import Footer from "./components/footer";
-import { IfForYou } from "./components/if-4-u";
 import OurTeam from "./components/our-team";
 import WhatWeDo from "./components/what-we-do";
 import AboutUs from "./components/about-us";
-import { aboutSection } from "./components/nav";
 import { useRef, useState } from "react";
-import { AppBar, Container, Toolbar, Box } from "@mui/material";
+import { Box } from "@mui/material";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "gray",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
+
 
 export default function App({ Component }) {
   // to change burger classes
@@ -55,27 +42,27 @@ export default function App({ Component }) {
 
   return (
     <>
-      <AppBar position="fixed" className="nav-bar">
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
+    {/* NAV */}
+      <Box  className="nav">
+        {/* Logo */}
+          <Box>
             <img
               src="c2f-nav-logo.svg"
               className="c2f-nav-logo"
               onClick={() => scrollToSection(hero)}
             />
-            <div className="burger-menu display-burger" onClick={updateMenu}>
+          </Box>
+            {/* Burger menu */}
+            {/* <Box className="burger-menu display-burger" onClick={updateMenu}>
                     <div className={burger_class} ></div>
                     <div className={burger_class} ></div>
                     <div className={burger_class} ></div>
-                </div>
+            </Box> */}
+            {/* Nav Bar */}
             <Box>
-              <div class="nav">
+              <div>
                 <ul
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    padding: "2rem",
-                  }}
+                  className="nav-menu"
                 >
                   <li
                     className="nav-btn"
@@ -96,27 +83,26 @@ export default function App({ Component }) {
                     Testimonials
                   </li>
                   <li className="nav-btn" onClick={() => scrollToSection(team)}>
-                    about
+                    Our Team
                   </li>
                 </ul>
               </div>
             </Box>
-          </Toolbar>
-        </Container>
-      </AppBar>
-      <section id="hero" ref={hero}>
+      </Box>
+      {/* Sections */}
+      <section className="section-column-flex" id="hero" ref={hero}>
         <Hero />
       </section>
-      <section id="what-we-do" ref={whatWeDo}>
+      <section className="section-column-flex" id="what-we-do" ref={whatWeDo}>
         <WhatWeDo />
       </section>
-      <section id="about-us" ref={about}>
+      <section className="section-column-flex" id="about-us" ref={about}>
         <AboutUs />
       </section>
-      <section id="testimonials" ref={testimonials}>
+      <section className="section-column-flex" id="testimonials" ref={testimonials}>
         <Testimonials />
       </section>
-      <section id="team" ref={team}>
+      <section className="section-column-flex" id="team" ref={team}>
         <OurTeam />
       </section>
 

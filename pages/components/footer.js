@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
@@ -19,13 +18,13 @@ export default function Footer(props) {
 
   return (
     <footer>
-      <Container style={{maxWidth:"lg", display:"flex", flexDirection:"columns", alignItems:"center", justifyContent:'center', padding:"5rem"}} className='footer-background' color={'gold'}>
-        <Box  flexWrap="wrap"  className="" >
-            <Link href="#" variant="body1" color="#FFCC01" className="">{content['link4']}</Link>
+      <Box className='footer'>
+        <Box  className="" >
+            <Link href="#" variant="body1" className="">{content['link4']}</Link>
         </Box>
         <br/>
-          <Typography color="#FFFF" component="p" variant="caption" gutterBottom={false}>{content['copy']}</Typography> 
-      </Container>
+          <Typography  component="p" variant="caption">{content['copy']}</Typography> 
+      </Box>
     </footer>
   );
 }
