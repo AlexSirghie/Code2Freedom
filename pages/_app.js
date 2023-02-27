@@ -8,8 +8,6 @@ import AboutUs from "./components/about-us";
 import { useRef, useState } from "react";
 import { Box } from "@mui/material";
 
-
-
 export default function App({ Component }) {
   // to change burger classes
   const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
@@ -34,60 +32,54 @@ export default function App({ Component }) {
   const team = useRef(null);
   const hero = useRef(null);
   const scrollToSection = (elementRef) => {
+    const navItem = document.getElementById("nav");
     window.scrollTo({
-      top: elementRef.current.offsetTop,
+      top: elementRef.current.offsetTop - navItem.offsetHeight,
+      // top: elementRef.current.offsetTop,
       behavior: "smooth",
     });
   };
 
   return (
     <>
-    {/* NAV */}
-      <Box  className="nav">
+      {/* NAV */}
+      <Box className="nav" id="nav">
         {/* Logo */}
-          <Box>
-            <img
-              src="c2f-nav-logo.svg"
-              className="c2f-nav-logo"
-              onClick={() => scrollToSection(hero)}
-            />
-          </Box>
-            {/* Burger menu */}
-            {/* <Box className="burger-menu display-burger" onClick={updateMenu}>
+        <Box>
+          <img
+            src="c2f-nav-logo.svg"
+            className="c2f-nav-logo"
+            onClick={() => scrollToSection(hero)}
+          />
+        </Box>
+        {/* Burger menu */}
+        {/* <Box className="burger-menu display-burger" onClick={updateMenu}>
                     <div className={burger_class} ></div>
                     <div className={burger_class} ></div>
                     <div className={burger_class} ></div>
             </Box> */}
-            {/* Nav Bar */}
-            <Box>
-              <div>
-                <ul
-                  className="nav-menu"
-                >
-                  <li
-                    className="nav-btn"
-                    onClick={() => scrollToSection(whatWeDo)}
-                  >
-                    What We Do
-                  </li>
-                  <li
-                    className="nav-btn"
-                    onClick={() => scrollToSection(about)}
-                  >
-                    About Us
-                  </li>
-                  <li
-                    className="nav-btn"
-                    onClick={() => scrollToSection(testimonials)}
-                  >
-                    Testimonials
-                  </li>
-                  <li className="nav-btn" onClick={() => scrollToSection(team)}>
-                    Our Team
-                  </li>
-                </ul>
-              </div>
-            </Box>
+        {/* Nav Bar */}
+        <Box>
+          <div>
+            <ul className="nav-menu">
+              <li className="nav-btn" onClick={() => scrollToSection(whatWeDo)}>
+                What We Do
+              </li>
+              <li className="nav-btn" onClick={() => scrollToSection(about)}>
+                About Us
+              </li>
+              <li
+                className="nav-btn"
+                onClick={() => scrollToSection(testimonials)}
+              >
+                Testimonials
+              </li>
+              <li className="nav-btn" onClick={() => scrollToSection(team)}>
+                Our Team
+              </li>
+            </ul>
+          </div>
+        </Box>
       </Box>
       {/* Sections */}
       <section className="section-column-flex" id="hero" ref={hero}>
@@ -99,7 +91,11 @@ export default function App({ Component }) {
       <section className="section-column-flex" id="about-us" ref={about}>
         <AboutUs />
       </section>
-      <section className="section-column-flex" id="testimonials" ref={testimonials}>
+      <section
+        className="section-column-flex"
+        id="testimonials"
+        ref={testimonials}
+      >
         <Testimonials />
       </section>
       <section className="section-column-flex" id="team" ref={team}>
